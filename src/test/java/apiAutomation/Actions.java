@@ -60,24 +60,28 @@ public class Actions {
 		}
 	}
 	
-	public void postMethod(String url,String key,String value) {
+	/*public void postMethod(String url,String key,String value) {
 		
 		RequestSpecification httpRequest = RestAssured.given();
 		
-		//httpRequest.body(obj.toJSONString());
+		String z_successCode = params(key, value);
 		Response response = httpRequest.request(Method.POST,url);
 		int z_statusCode = response.getStatusCode();
-		String z_successCode = response.jsonPath().get("SuccessCode");
+		
 		this.z_statusCode = z_statusCode;
 		this.z_successCode =z_successCode;
 		
 	}
 	
-	public void params(String key,String value) {
-		
+	public String params(String key,String value) {
+		RequestSpecification httpRequest = RestAssured.given();
+		Response response =httpRequest.post();
 		JSONObject obj = new JSONObject();
 		obj.put(key, value);
-		
-	}
+		httpRequest.body(obj.toJSONString());
+		String z_successCode = response.jsonPath().get("SuccessCode");
+		return z_successCode;
+	
+	}*/
 
 }
