@@ -118,13 +118,11 @@ public class Actions {
 
 	}
 	
-	public void postMethod(String baseURL,String URL,String key,String value) {
+	public void postMethod(String baseURL,String URL,HashMap<String, String> e) {
 		RestAssured.baseURI = baseURL;
 		httpRequest = RestAssured.given();
 		JSONObject oobj = new JSONObject();
-				
-				oobj.put(key,value);
-		
+		oobj.putAll(e);
 		httpRequest.body(oobj.toJSONString());
 		response = httpRequest.request(Method.POST, URL);
 		int statusCode = response.getStatusCode();
@@ -135,17 +133,4 @@ public class Actions {
 		System.out.println(body);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
