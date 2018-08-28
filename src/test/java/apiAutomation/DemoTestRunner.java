@@ -11,25 +11,55 @@ import junit.framework.Assert;
 public class DemoTestRunner extends Actions {
 	
 	data ddata;
-  @Test(enabled=false)
-  public void f() {
+  @Test(description="Get Method")
+  public void testcase_001() {
 	  
 	  ddata = new data();
-	  getMethodAuthorization(ddata.baseURL,ddata.user+ddata.Profile,ddata.oauth);
-	  System.out.println(ddata.baseURL+ddata.user+ddata.Profile);
-      System.out.println(z_statusCode);  
+	  getMethod(ddata.baseURL,ddata.user+ddata.Profile,ddata.oauth);
+      System.out.println("StatusCode: "+z_statusCode+"\nstatausLine:"+z_statusLine+"\nBody:"+z_body);
       Assert.assertEquals(200,z_statusCode);
   }
   
-  @Test
-  public void f1() {
-	  
+  @Test(description="Post Method")
+  public void testcase_002() {
+	ddata = new data();
 	HashMap<String, String> e = new HashMap<String, String>();
-	e.put("name", "morpheus11");
-	e.put("job", "leader11");
-	  
-	postMethod("https://reqres.in","/api/users",e);
-	System.out.println(z_statusCode);
+	e.put("Name", ddata.Name);
+	e.put("Job", ddata.Job);	  
+	postMethod(ddata.BS_2,ddata.EP_2,e, null);
+	System.out.println("StatusCode: "+z_statusCode+"\nstatausLine:"+z_statusLine+"\nBody:"+z_body);
+	Assert.assertEquals(201,z_statusCode);
   }
+  
+  
+  @Test(description="PUT Method")
+  public void testcase_003() {
+	ddata = new data();
+	HashMap<String, String> e = new HashMap<String, String>();
+	e.put("Name", ddata.Name);
+	e.put("Job", ddata.Name);	  
+	putMethod(ddata.BS_2,ddata.EP_2,e, null);
+	System.out.println("StatusCode: "+z_statusCode+"\nstatausLine:"+z_statusLine+"\nBody:"+z_body);
+	Assert.assertEquals(200,z_statusCode);
+  }
+  
+  @Test(description="Patch Method")
+  public void testcase_004() {
+	ddata = new data();
+	HashMap<String, String> e = new HashMap<String, String>();
+	e.put("Name", ddata.Name);
+	e.put("Job", ddata.Name);	  
+	patchMethod(ddata.BS_2,ddata.EP_2,e, null);
+	System.out.println("StatusCode: "+z_statusCode+"\nstatausLine:"+z_statusLine+"\nBody:"+z_body);
+	Assert.assertEquals(200,z_statusCode);
+  }
+  
+  @Test(description="All Headers")
+  public void testcase_005() {
+	  ddata = new data();
+	  getAllHeaders(ddata.BS_2,ddata.EP_2, null);
+	  
+  }
+
   
 }
