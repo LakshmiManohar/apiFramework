@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" ignored="4" total="5" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7064" started-at="2018-09-19T13:01:42Z" finished-at="2018-09-19T13:01:49Z">
+  <suite name="Default suite" duration-ms="6362" started-at="2018-09-19T14:35:05Z" finished-at="2018-09-19T14:35:11Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7064" started-at="2018-09-19T13:01:42Z" finished-at="2018-09-19T13:01:49Z">
+    <test name="Default test" duration-ms="6362" started-at="2018-09-19T14:35:05Z" finished-at="2018-09-19T14:35:11Z">
       <class name="apiAutomation.DemoTestRunner">
-        <test-method status="PASS" signature="testcase_001()[pri:0, instance:apiAutomation.DemoTestRunner@604ed9f0]" name="testcase_001" duration-ms="7040" started-at="2018-09-19T13:01:42Z" description="Get Method" finished-at="2018-09-19T13:01:49Z">
+        <test-method status="PASS" signature="testcase_002()[pri:0, instance:apiAutomation.DemoTestRunner@7cd62f43]" name="testcase_002" duration-ms="6336" started-at="2018-09-19T14:35:05Z" description="Post Method" finished-at="2018-09-19T14:35:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testcase_001 -->
+        </test-method> <!-- testcase_002 -->
       </class> <!-- apiAutomation.DemoTestRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
