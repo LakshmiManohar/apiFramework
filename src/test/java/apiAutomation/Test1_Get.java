@@ -7,6 +7,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
 import io.restassured.http.Method;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -18,6 +19,8 @@ public class Test1_Get {
 	  
 	  RequestSpecification requestSpec = RestAssured.given();
 	  Response response = requestSpec.request(Method.GET,"/api/users/2");
+	  JsonPath jp = response.jsonPath();
+	  String s = jp.getString("data.first_name");
 	  int statusCode = response.getStatusCode();
 	  String statusBody = response.getBody().asString();
 	  String statusLine = response.statusLine();
@@ -27,7 +30,7 @@ public class Test1_Get {
 	  System.out.println("-------------------------------------");
   }
   
-  @Test
+  @Test(enabled=false)
   public void testcase2() {
 	  
 	  RestAssured.baseURI = "https://reqres.in";
@@ -48,7 +51,7 @@ public class Test1_Get {
 	  
 }
   
-  @Test
+  @Test(enabled=false)
   public void testcase3() {
 	  
 	  RestAssured.baseURI = "https://reqres.in";
@@ -70,7 +73,7 @@ public class Test1_Get {
 	  
   }
   
-  @Test
+  @Test(enabled=false)
   public void testcase4() {
 	  
 	  RestAssured.baseURI = "https://reqres.in";
@@ -90,7 +93,7 @@ public class Test1_Get {
 	  
   }
 
- @Test
+ @Test(enabled=false)
  public void testcase5() {
 	
 	  RequestSpecification requestSpec = RestAssured.given();
@@ -106,7 +109,7 @@ public class Test1_Get {
 	  
  }
  
- @Test
+ @Test(enabled=false)
  public void testcase6() {
 	 
 	 

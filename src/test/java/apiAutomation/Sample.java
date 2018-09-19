@@ -20,12 +20,8 @@ public class Sample {
 	  Response res = resp.request(Method.GET,"/api/users?page=2");
 	  JsonPath path = res.jsonPath();
 	
-	  Assert.assertEquals(path.getString("data[1].first_name"),"Charles");
-	   List <String> s = path.getList("$.data[*].first_name");
-	   for(String s1 :s) {
-		   
-		   System.out.println(s1);
-	   }
+	 String s = path.getString("data[0].id");
+	 System.out.println(s);
 	  
   }
 }

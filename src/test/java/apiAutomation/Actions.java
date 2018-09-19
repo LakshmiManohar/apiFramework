@@ -19,11 +19,12 @@ public class Actions {
 	int z_statusCode;
 	String z_statusLine;
 	String z_body;
+	String z_JSONKEY;
 	RequestSpecification httpRequest;
 	Response response;
 	
 		
-	public void getMethod(String baseURL,String url,String key) {
+	public void getMethod(String baseURL,String url,String key,String validate) {
 		
 	     try {
 	    	 RestAssured.baseURI = baseURL;	
@@ -32,8 +33,14 @@ public class Actions {
 	    		
 	    		 httpRequest.header("Authorization","Bearer"+" "+key);
 	    	 }
-	    	
 			 response = httpRequest.request(Method.GET, url);
+			 if(validate!=null) {
+	    		 
+				 JsonPath jsonEvaluator = response.jsonPath();
+				String jsonExpression = jsonEvaluator.getString(validate);
+				this.z_JSONKEY = jsonExpression;
+	    	 }
+			 
 			int z_statusCode = response.getStatusCode();
 			String z_statusLine = response.getStatusLine();
 			String z_body = response.getBody().asString();
@@ -72,7 +79,7 @@ public class Actions {
 
 	}
 	
-	public void postMethod(String baseURL,String URL,HashMap<String, String> e,String key) {
+	public void postMethod(String baseURL,String URL,HashMap<String, String> e,String key,String validate) {
 		
 		try {
 		RestAssured.baseURI = baseURL;
@@ -86,6 +93,12 @@ public class Actions {
 		httpRequest.header("Content-Type","application/json");
 		httpRequest.body(oobj.toJSONString());
 		response = httpRequest.request(Method.POST, URL);
+		 if(validate!=null) {
+    		 
+			 JsonPath jsonEvaluator = response.jsonPath();
+			String jsonExpression = jsonEvaluator.getString(validate);
+			this.z_JSONKEY = jsonExpression;
+    	 }
 		int z_statusCode = response.getStatusCode();
 		String z_statusLine = response.getStatusLine();
 		String z_body = response.getBody().asString();
@@ -99,7 +112,7 @@ public class Actions {
 		
 	}
 	
-	public void putMethod(String baseURL,String URL,HashMap<String, String> e,String key) {
+	public void putMethod(String baseURL,String URL,HashMap<String, String> e,String key,String validate) {
 		
 		try {
 		RestAssured.baseURI = baseURL;
@@ -113,6 +126,12 @@ public class Actions {
 		httpRequest.header("Content-Type","application/json");
 		httpRequest.body(oobj.toJSONString());
 		response = httpRequest.request(Method.PUT, URL);
+		 if(validate!=null) {
+    		 
+			 JsonPath jsonEvaluator = response.jsonPath();
+			String jsonExpression = jsonEvaluator.getString(validate);
+			this.z_JSONKEY = jsonExpression;
+    	 }
 		int z_statusCode = response.getStatusCode();
 		String z_statusLine = response.getStatusLine();
 		String z_body = response.getBody().asString();
@@ -126,7 +145,7 @@ public class Actions {
 		
 	}
 	
-	public void patchMethod(String baseURL,String URL,HashMap<String, String> e,String key) {
+	public void patchMethod(String baseURL,String URL,HashMap<String, String> e,String key,String validate) {
 		
 		try {
 		RestAssured.baseURI = baseURL;
@@ -140,6 +159,12 @@ public class Actions {
 		httpRequest.header("Content-Type","application/json");
 		httpRequest.body(oobj.toJSONString());
 		response = httpRequest.request(Method.PATCH, URL);
+		 if(validate!=null) {
+    		 
+			 JsonPath jsonEvaluator = response.jsonPath();
+			String jsonExpression = jsonEvaluator.getString(validate);
+			this.z_JSONKEY = jsonExpression;
+    	 }
 		int z_statusCode = response.getStatusCode();
 		String z_statusLine = response.getStatusLine();
 		String z_body = response.getBody().asString();

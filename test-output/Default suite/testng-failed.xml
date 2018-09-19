@@ -5,11 +5,7 @@
     <classes>
       <class name="apiAutomation.DemoTestRunner">
         <methods>
-          <include name="testcase_005"/>
-          <include name="testcase_002"/>
-          <include name="testcase_004"/>
           <include name="testcase_001"/>
-          <include name="testcase_003"/>
         </methods>
       </class> <!-- apiAutomation.DemoTestRunner -->
     </classes>
